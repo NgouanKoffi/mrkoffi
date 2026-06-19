@@ -1,0 +1,15 @@
+node_modules
+.next
+out
+build
+.env*.local
+*.log
+.DS_Store
+next-env.d.ts
+tsconfig.tsbuildinfo
+
+# sauvegardes locales (palettes précédentes)
+app/*bak.css
+app/*bak.tsx
+app/*.prepalette.*
+app/*.original.*
