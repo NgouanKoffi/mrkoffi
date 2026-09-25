@@ -13,3 +13,6 @@ app/*bak.css
 app/*bak.tsx
 app/*.prepalette.*
 app/*.original.*
+
+# sources brutes des visuels projets (captures/logos téléchargés), pas servies
+public/projects/*/
