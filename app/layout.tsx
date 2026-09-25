@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Bebas_Neue, Caveat, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import { Bebas_Neue, JetBrains_Mono, Plus_Jakarta_Sans } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 
 const font = Plus_Jakarta_Sans({
@@ -16,9 +17,10 @@ const display = Bebas_Neue({
   display: "swap",
 });
 
-const hand = Caveat({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
+/* Caveat en local (police variable 400–700) : évite le bug Turbopack next/font/google multi-graisses */
+const hand = localFont({
+  src: "./fonts/Caveat-Variable.ttf",
+  weight: "400 700",
   variable: "--font-hand",
   display: "swap",
 });
