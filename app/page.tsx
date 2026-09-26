@@ -261,9 +261,9 @@ export default function Home() {
               </h2>
               <p className="up">Parcours scolaire et universitaire suivi en Côte d&apos;Ivoire.</p>
               <p className="doodle parcours-note up" data-delay="0.2" aria-hidden="true">
-                13 ans, l&apos;homme réfléchi
+                L&apos;homme réfléchi
                 <br />
-                ça finit pas 😂
+                depuis ça finit pas 😂
                 <svg className="scribble" viewBox="0 0 200 18" fill="none" preserveAspectRatio="none">
                   <path d="M3 10 C 30 4, 55 14, 80 8 S 130 4, 160 10 S 190 14, 197 8" strokeWidth="2.2" strokeLinecap="round" />
                 </svg>
