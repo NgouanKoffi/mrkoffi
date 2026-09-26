@@ -950,6 +950,80 @@ html.menu-lock body {
   }
 }
 
+/* ---------- bouton retour en haut ---------- */
+.to-top {
+  position: fixed;
+  right: max(18px, env(safe-area-inset-right));
+  bottom: max(18px, env(safe-area-inset-bottom));
+  z-index: 55;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--on-ink);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(16px) scale(0.85);
+  transition: opacity 0.35s var(--ease), transform 0.45s var(--ease), background 0.3s, visibility 0s 0.45s;
+}
+.to-top.on {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  transition: opacity 0.35s var(--ease), transform 0.45s var(--ease), background 0.3s, visibility 0s;
+}
+.to-top:hover {
+  background: var(--cor);
+  color: #fff;
+  transform: translateY(-3px);
+}
+.to-top:active {
+  transform: scale(0.92);
+}
+.to-top:focus-visible {
+  outline: 2px solid var(--cor);
+  outline-offset: 3px;
+}
+.to-top-ring {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+  fill: none;
+  stroke-width: 2.5;
+}
+.to-top-track {
+  stroke: currentColor;
+  opacity: 0.15;
+}
+.to-top-bar {
+  stroke: var(--cor);
+  stroke-linecap: round;
+}
+.to-top:hover .to-top-bar {
+  stroke: #fff;
+}
+.to-top-arrow {
+  width: 20px;
+  height: 20px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: transform 0.3s var(--ease);
+}
+.to-top:hover .to-top-arrow {
+  transform: translateY(-2px);
+}
+
 /* ---------- marquee ---------- */
 .marquee {
   overflow: hidden;

@@ -8,6 +8,7 @@ import { WebScene, MobileScene } from "./components/Illustrations";
 import Island3D from "./components/Island3D";
 import Lottie from "./components/Lottie";
 import CodeTrail from "./components/CodeTrail";
+import BackToTop from "./components/BackToTop";
 import { useScrollFx } from "./components/useScrollFx";
 import { WHATSAPP, EMAIL, PHONE, PHONE_DISPLAY, DELIVERED } from "./data/projects";
 
@@ -54,6 +55,7 @@ export default function Home() {
   return (
     <>
       <CodeTrail />
+      <BackToTop />
       <Nav />
       <main>
         {/* ================= HERO (split orange / blanc, photo au centre) ================= */}
