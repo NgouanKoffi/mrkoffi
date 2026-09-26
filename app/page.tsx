@@ -175,7 +175,7 @@ export default function Home() {
               alt="Koffi N'gouan Emmanuel, développeur web et mobile"
               className="hero-photo"
               width={1000}
-              height={836}
+              height={750}
               fetchPriority="high"
             />
           </picture>

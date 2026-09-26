@@ -185,6 +185,8 @@ vérifiées à chaque fois sur :3000 via Chrome. **Toujours rien commité.**
 ### Photo
 - Source : portrait Gemini fond blanc → `public/koffi-portrait.jpg`. Détourage local `rembg` (`u2net_human_seg`,
   alpha matting), fichier brut conservé dans `%TEMP%\cut_raw.png` (à régénérer si absent).
+- **2026-09-26** : desktop remplacé par portrait costume (source racine `Apply_frequency_separation_and_suit_2K_*.jpeg`),
+  sticker régénéré 1000×750 (~56 Ko), même recette (contour r=20 à 2000 px, ombre 18/26) ; mobile inchangé.
 - Sticker `public/koffi-portrait.webp` (1000×836, ~100 Ko) fabriqué en Python/PIL :
   1. recadrage **juste avant** que le t-shirt touche les bords (sinon bords verticaux visibles), tête recentrée ;
   2. marge haute + 60 px gardés sous la coupe, masque flouté 1.2 px ;
