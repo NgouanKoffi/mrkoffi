@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { WHATSAPP } from "../data/projects";
+import ThemeToggle from "./ThemeToggle";
 
 /* desktop : 3 liens à gauche de la spirale, 3 à droite */
 const LEFT = [
@@ -108,6 +109,7 @@ export default function Nav() {
               </li>
             ))}
           </ul>
+          <ThemeToggle />
           <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" className="btn dark sm nav-cta">
             Me contacter
           </a>

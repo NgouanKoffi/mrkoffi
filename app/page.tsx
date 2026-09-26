@@ -69,9 +69,9 @@ export default function Home() {
               </div>
               <div className="hero-mid">
                 <p className="hero-tag up" data-delay="0.15">
-                  Des sites web qui inspirent.
+                  Sites, applis et logiciels
                   <br />
-                  Des applications mobiles qui livrent.
+                  qui marchent, même en 3G.
                 </p>
                 <div className="up" data-delay="0.25">
                   <a href="#projets" className="btn white lg hero-btn">
@@ -111,9 +111,9 @@ export default function Home() {
                 <span className="line outline">Coder.</span>
               </h2>
               <p className="hero-tag dark up" data-delay="0.15">
-                Je suis <strong>Koffi N&apos;gouan Emmanuel</strong>, développeur web &amp; mobile depuis plus de <strong>4 ans</strong>.
-                Je vous aide à réaliser vos projets sur mesure, du brief à la mise en ligne, avec un suivi clair à
-                chaque étape.
+                Je suis <strong>Koffi N&apos;gouan Emmanuel</strong>, développeur web &amp; mobile à Bouaké depuis{" "}
+                <strong>4 ans</strong>. Vous parlez directement avec moi, pas avec un commercial, et vous voyez votre
+                projet avancer sur un lien de test dès la première semaine.
               </p>
               <div className="hero-nudge up" data-delay="0.28" aria-hidden="true">
                 <span>Viens, on en parle</span>
@@ -131,7 +131,9 @@ export default function Home() {
           </div>
 
           <div className="hero-lines" aria-hidden="true" />
-          <div className="hero-spiral" aria-hidden="true" />
+          <div className="hero-spiral" aria-hidden="true">
+            <i />
+          </div>
 
           {/* gribouillis au bic, façon marge de cahier */}
           <div className="doodles" aria-hidden="true">
@@ -164,14 +166,17 @@ export default function Home() {
             </p>
           </div>
 
-          <img
-            src="/koffi-portrait.webp"
-            alt="Koffi N'gouan Emmanuel, développeur web et mobile"
-            className="hero-photo"
-            width={1000}
-            height={836}
-            fetchPriority="high"
-          />
+          <picture className="hero-photo-wrap">
+            <source media="(max-width: 999px)" srcSet="/koffi-mobile.webp" width={806} height={1100} />
+            <img
+              src="/koffi-portrait.webp"
+              alt="Koffi N'gouan Emmanuel, développeur web et mobile"
+              className="hero-photo"
+              width={1000}
+              height={836}
+              fetchPriority="high"
+            />
+          </picture>
         </section>
 
         {/* ================= MARQUEE TECH ================= */}
@@ -215,17 +220,17 @@ export default function Home() {
                 <i /> Pourquoi moi
               </span>
               <h2 className="split">
-                Prenez le contrôle de <span className="o">tout ce qui compte</span>, depuis votre téléphone.
+                Pas juste un joli site&nbsp;: <span className="o">un outil qui encaisse</span>.
               </h2>
               <p className="up">
-                Un site ou une application, c&apos;est un outil de travail. Il doit vous faire gagner du temps, encaisser
-                vos clients et vous donner une vue claire de votre activité.
+                Vos clients paient en Orange Money ou Wave, reçoivent leur confirmation, et vous suivez tout depuis
+                votre téléphone. C&apos;est ce que je construis pour des boutiques, une université et un centre culturel.
               </p>
               <ul className="bars">
                 {[
-                  ["Simple pour vos clients", "Une interface claire, rapide, pensée pour le mobile d'abord.", "M4 12h16M12 4v16"],
-                  ["Paiement Mobile Money", "Orange Money, MTN, Wave et carte bancaire intégrés.", "M3 7h18v10H3zM3 11h18"],
-                  ["Vos données en sécurité", "Sauvegardes automatiques, accès protégés, rien ne se perd.", "M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"],
+                  ["Pensé pour le téléphone", "Vos clients sont sur mobile, souvent en 3G : pages légères, boutons faciles à toucher.", "M4 12h16M12 4v16"],
+                  ["Mobile Money intégré", "Orange Money, MTN MoMo, Wave ou carte : le client paie sans quitter votre site.", "M3 7h18v10H3zM3 11h18"],
+                  ["Vos données à l'abri", "Sauvegardes automatiques et accès par mot de passe : un téléphone perdu ne vous fait rien perdre.", "M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"],
                 ].map(([t, d, ico], i) => (
                   <li className="up" data-delay={i * 0.1} key={t}>
                     <span className="ico">
@@ -267,8 +272,6 @@ export default function Home() {
 
             <ol className="timeline">
               {[
-                ["2012", "CEPE", "Certificat d'Études Primaires Élémentaires"],
-                ["2016", "BEPC", "Brevet d'Études du Premier Cycle"],
                 ["2019", "Bac D", "Baccalauréat série D (mathématiques et sciences)"],
                 ["2023", "Licence", "Licence en Bases de données"],
                 ["2025", "Master 2", "Master 2 Big Data Analytics"],

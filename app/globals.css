@@ -19,6 +19,12 @@
   --line: #eee8e3;
   --bg: #ffffff;
   --bg-soft: #fcfaf8;
+  --surface: #ffffff; /* cartes, boutons clairs */
+  --on-ink: #ffffff; /* texte posé sur un fond var(--ink) */
+  --night: #131316; /* sections sombres (restent sombres en thème nuit) */
+  --black: #131316; /* encre fixe, sur fond blanc fixe */
+  --nav-glass: rgba(255, 255, 255, 0.96);
+  --doodle: #17171a; /* gribouillis stylo */
   --green: #22c55e;
   --r: 28px;
   --r-sm: 18px;
@@ -29,6 +35,61 @@
   --nav-h: 72px;
   --hero-pad: clamp(24px, 9.5vw, 184px);
   --stair: clamp(48px, 8.4vw, 162px);
+}
+
+/* ---------- THÈME NUIT : data-theme="dark" posé sur <html> (voir layout + ThemeToggle) ---------- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --cor-pale: #7a3a22;
+  --peach: #26170f;
+  --peach2: #341e14;
+  --sand: #1c1915;
+  --mist: #141a1c;
+  --ink: #f4f0ea;
+  --ink2: #e7e2da;
+  --txt: #bdb8b0;
+  --mut: #8d8881;
+  --line: #2a2a31;
+  --bg: #0e0e11;
+  --bg-soft: #141418;
+  --surface: #1b1b20;
+  --on-ink: #131316;
+  --night: #1a1a1f;
+  --nav-glass: rgba(14, 14, 17, 0.94);
+  --doodle: #e9e3da;
+  --shadow: 0 14px 44px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 34px 90px rgba(0, 0, 0, 0.6);
+}
+:root[data-theme="dark"] .nav-wrap.scrolled {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+:root[data-theme="dark"] .nav-wrap.scrolled.t-soft {
+  background: rgba(20, 20, 24, 0.94);
+}
+:root[data-theme="dark"] .nav-wrap.scrolled.t-sand {
+  background: rgba(28, 25, 21, 0.94);
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+:root[data-theme="dark"] .nav-wrap.scrolled.t-peach {
+  background: rgba(38, 23, 15, 0.94);
+}
+/* les maquettes (navigateur, téléphone, chat…) sont des « captures » : elles restent claires */
+:root[data-theme="dark"] :is(.mock-browser, .mock-phone, .mock-chat, .mock-data, .site, .app, .prj-cover) {
+  color-scheme: light;
+  --peach: #fff1ea;
+  --peach2: #ffe3d6;
+  --cor-pale: #ffb899;
+  --sand: #fbf6ee;
+  --mist: #eef3f4;
+  --ink: #131316;
+  --ink2: #1c1c21;
+  --txt: #4a4a52;
+  --mut: #77777f;
+  --line: #eee8e3;
+  --bg: #ffffff;
+  --bg-soft: #fcfaf8;
+  --surface: #ffffff;
+  --on-ink: #ffffff;
 }
 
 *,
@@ -143,7 +204,7 @@ h3 {
 }
 .btn.dark {
   background: var(--ink);
-  color: #fff;
+  color: var(--on-ink);
 }
 .btn.dark:hover {
   background: #2a2a31;
@@ -151,7 +212,7 @@ h3 {
 }
 .btn.white {
   background: #fff;
-  color: var(--ink);
+  color: var(--black);
   box-shadow: 0 8px 26px rgba(20, 20, 30, 0.1);
 }
 .btn.white:hover {
@@ -172,7 +233,7 @@ h3 {
 .btn.ghost {
   border: 1.5px solid var(--line);
   color: var(--ink);
-  background: #fff;
+  background: var(--surface);
 }
 .btn.ghost:hover {
   border-color: var(--ink);
@@ -208,7 +269,7 @@ h3 {
 }
 .tag.dark {
   background: var(--ink);
-  color: #fff;
+  color: var(--on-ink);
 }
 .tag.orange {
   background: var(--peach);
@@ -222,7 +283,7 @@ h3 {
 .tag.line {
   border: 1px solid var(--line);
   color: var(--mut);
-  background: #fff;
+  background: var(--surface);
 }
 .pill {
   display: inline-flex;
@@ -312,7 +373,7 @@ h3 {
   background: var(--ink) !important;
 }
 .nav-wrap.menu-open .burger i {
-  background: #fff !important;
+  background: var(--on-ink) !important;
 }
 /* verrouillage du scroll quand le menu est ouvert */
 html.menu-lock,
@@ -322,7 +383,7 @@ html.menu-lock body {
   touch-action: none;
 }
 .nav-wrap.scrolled {
-  background: rgba(255, 255, 255, 0.96);
+  background: var(--nav-glass);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
   border-bottom-color: rgba(19, 19, 22, 0.08);
@@ -379,11 +440,11 @@ html.menu-lock body {
 .nav-wrap.scrolled.t-dark .burger,
 .nav-wrap.scrolled.t-orange .burger {
   background: #fff;
-  color: var(--ink);
+  color: var(--black);
 }
 .nav-wrap.scrolled.t-dark .burger i,
 .nav-wrap.scrolled.t-orange .burger i {
-  background: var(--ink);
+  background: var(--black);
 }
 .brand {
   font-weight: 800;
@@ -438,9 +499,45 @@ html.menu-lock body {
 .nav-cta {
   display: none;
 }
+.theme-toggle {
+  position: relative;
+  flex: 0 0 auto;
+  width: 44px;
+  height: 44px;
+  margin-left: auto;
+  margin-right: -14px; /* rapproche du burger (le gap du nav fait 28px) */
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--ink);
+  border: 1.5px solid color-mix(in srgb, currentColor 22%, transparent);
+  transition: color 0.3s, border-color 0.3s, transform 0.5s var(--ease);
+}
+.theme-toggle:hover {
+  transform: rotate(-18deg);
+}
+.theme-toggle svg {
+  grid-area: 1 / 1;
+  transition: opacity 0.35s, transform 0.5s var(--ease);
+}
+.theme-toggle .tt-sun,
+.theme-toggle.is-dark .tt-moon {
+  opacity: 0;
+  transform: scale(0.5) rotate(-60deg);
+}
+.theme-toggle .tt-moon,
+.theme-toggle.is-dark .tt-sun {
+  opacity: 1;
+  transform: none;
+}
+/* sur fond orange ou sombre : icône blanche */
+.nav-wrap.scrolled.t-dark .theme-toggle,
+.nav-wrap.scrolled.t-orange .theme-toggle {
+  color: #fff;
+}
 .burger {
   display: block;
-  margin-left: auto;
+  margin-left: 0; /* le bouton thème juste avant prend l'espace libre */
   width: 44px;
   height: 44px;
   border-radius: 50%;
@@ -452,7 +549,7 @@ html.menu-lock body {
   left: 14px;
   width: 16px;
   height: 2px;
-  background: #fff;
+  background: var(--on-ink);
   border-radius: 2px;
   transition: transform 0.35s var(--ease), top 0.35s var(--ease);
 }
@@ -480,7 +577,7 @@ html.menu-lock body {
   justify-content: center;
   gap: 6px;
   padding: calc(var(--nav-h) + 20px) var(--pad) 40px;
-  background: #fff;
+  background: var(--surface);
   background-image: radial-gradient(60% 40% at 80% 100%, var(--peach2), rgba(255, 227, 214, 0) 70%);
   opacity: 0;
   visibility: hidden;
@@ -517,7 +614,7 @@ html.menu-lock body {
   margin-top: 28px;
   align-self: flex-start;
   background: var(--ink);
-  color: #fff;
+  color: var(--on-ink);
 }
 
 /* ---------- HERO v3 : split orange / blanc, photo au centre ---------- */
@@ -659,10 +756,14 @@ html.menu-lock body {
   background: linear-gradient(135deg, #3a2a24, #6a3b2a);
 }
 .avatars span.more {
-  background: #fff;
+  background: var(--surface);
   color: var(--cor);
 }
 
+/* <picture> transparent pour la grille : l'img reste l'élément placé */
+.hero-photo-wrap {
+  display: contents;
+}
 .hero-photo {
   grid-column: 1;
   grid-row: 1;
@@ -757,7 +858,7 @@ html.menu-lock body {
   font-size: clamp(22px, 1.9vw, 28px);
   line-height: 1.02;
   letter-spacing: 0.005em;
-  color: #17171a;
+  color: var(--doodle);
   pointer-events: none;
   user-select: none;
   white-space: nowrap;
@@ -911,7 +1012,7 @@ html.menu-lock body {
   color: var(--mut);
 }
 .card {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--r);
   padding: 26px;
@@ -937,7 +1038,7 @@ html.menu-lock body {
 }
 .fcard {
   position: absolute;
-  background: #fff;
+  background: var(--surface);
   border-radius: 16px;
   padding: 12px 14px;
   box-shadow: 0 18px 44px rgba(60, 30, 10, 0.14);
@@ -1110,7 +1211,7 @@ html.menu-lock body {
   width: 42px;
   height: 42px;
   border-radius: 12px;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   color: var(--cor);
   display: grid;
@@ -1259,7 +1360,7 @@ html.menu-lock body {
   background: var(--mist);
 }
 .stack-card.ink {
-  background: var(--ink);
+  background: var(--night);
 }
 .stack-card.ink h3,
 .stack-card.ink .num,
@@ -1341,14 +1442,14 @@ html.menu-lock body {
   overflow: clip;
 }
 .p-web {
-  background: #fff;
+  background: var(--surface);
 }
 .p-mobile {
   background: var(--peach);
 }
 /* panneau jeux & 3D : texte à gauche, terrain 3D + joueur au trait à droite */
 .p-game {
-  background: var(--ink);
+  background: var(--night);
   color: rgba(255, 255, 255, 0.8);
 }
 .p-game h3,
@@ -1367,7 +1468,7 @@ html.menu-lock body {
 }
 .p-game .btn.dark {
   background: #fff;
-  color: var(--ink);
+  color: var(--black);
 }
 /* île 3D (Three.js) */
 .island3d {
@@ -1411,6 +1512,10 @@ html.menu-lock body {
 }
 /* mobile / tablette : panneau simple, sans visuel 3D */
 @media (max-width: 999px) {
+  /* hero mobile orange sous le header : icône thème blanche */
+  .nav-wrap:not(.scrolled):not(.menu-open) .theme-toggle {
+    color: #fff;
+  }
   .p-game {
     min-height: 0;
     padding-bottom: 56px;
@@ -1735,7 +1840,7 @@ html.menu-lock body {
   font-size: 14px;
   font-weight: 700;
   color: var(--txt);
-  background: #fff;
+  background: var(--surface);
   transition: all 0.3s;
 }
 .tabs button i {
@@ -1748,12 +1853,12 @@ html.menu-lock body {
 }
 .tabs button.on {
   background: var(--ink);
-  color: #fff;
+  color: var(--on-ink);
   border-color: var(--ink);
 }
 .tabs button.on i {
-  background: rgba(255, 255, 255, 0.15);
-  color: #fff;
+  background: color-mix(in srgb, var(--on-ink) 15%, transparent);
+  color: var(--on-ink);
 }
 .prj-grid {
   margin-top: 36px;
@@ -1762,7 +1867,7 @@ html.menu-lock body {
   gap: 18px;
 }
 .prj-card {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 24px;
   padding: 10px 10px 18px;
@@ -1833,7 +1938,7 @@ html.menu-lock body {
   width: 76px;
   height: 76px;
   border-radius: 22px;
-  background: #fff;
+  background: var(--surface);
   display: grid;
   place-items: center;
   box-shadow: 0 10px 30px rgba(60, 30, 10, 0.12);
@@ -1852,7 +1957,7 @@ html.menu-lock body {
   padding: 5px 10px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
-  color: var(--ink);
+  color: var(--black);
   backdrop-filter: blur(6px);
 }
 .status.st-live {
@@ -2129,7 +2234,7 @@ html.menu-lock body {
   font-size: 12px;
   font-weight: 700;
   color: var(--ink);
-  background: #fff;
+  background: var(--surface);
   border-radius: 999px;
   padding: 6px 12px;
   margin-bottom: 8px;
@@ -2159,7 +2264,7 @@ html.menu-lock body {
   gap: 12px;
 }
 .faq-item {
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 20px;
   transition: background 0.35s, border-color 0.35s, box-shadow 0.35s;
@@ -2199,7 +2304,7 @@ html.menu-lock body {
   height: 36px;
   border-radius: 50%;
   border: 1.5px solid var(--line);
-  background: #fff;
+  background: var(--surface);
   display: grid;
   place-items: center;
   color: var(--ink);
@@ -2208,7 +2313,7 @@ html.menu-lock body {
 .faq-item.open button i {
   transform: rotate(180deg);
   background: var(--ink);
-  color: #fff;
+  color: var(--on-ink);
   border-color: var(--ink);
 }
 .faq-a {
@@ -2290,7 +2395,7 @@ html.menu-lock body {
   height: 54px;
   border-radius: 50%;
   background: var(--ink);
-  color: #fff;
+  color: var(--on-ink);
   display: grid;
   place-items: center;
   font-size: 18px;
@@ -2320,7 +2425,7 @@ html.menu-lock body {
 .cta {
   margin-top: 26px;
   position: relative;
-  background: var(--ink);
+  background: var(--night);
   border-radius: var(--r);
   padding: 56px 26px;
   text-align: center;
@@ -2401,7 +2506,7 @@ html.menu-lock body {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 12px 14px;
@@ -2476,6 +2581,10 @@ a.fc:hover {
   /* rien ne doit imposer une largeur mini à la colonne (boutons nowrap, photo…) */
   .hero {
     grid-template-columns: minmax(0, 1fr);
+    /* photo mobile (806×1100, contour blanc, bas en fondu) : largeur, hauteur, part qui déborde sur le panneau blanc */
+    --pw: min(70vw, 330px);
+    --ph: calc(var(--pw) * 1.365);
+    --pover: calc(var(--ph) * 0.3);
   }
   .hero-left,
   .hero-right,
@@ -2498,8 +2607,8 @@ a.fc:hover {
   }
   .hero-left {
     min-height: 0;
-    /* bas réservé à la photo (ratio 1000×836, largeur min(92vw, 420px)) */
-    padding: calc(var(--nav-h) + 8px) var(--pad) calc(min(92vw, 420px) * 0.84 + 8px);
+    /* bas réservé à la partie de la photo posée sur l'orange */
+    padding: calc(var(--nav-h) + 8px) var(--pad) calc(var(--ph) - var(--pover) + 28px);
     text-align: center;
     align-items: center;
   }
@@ -2543,9 +2652,12 @@ a.fc:hover {
     max-width: 300px;
   }
   /* photo : pleine largeur, ancrée en bas du panneau orange, halo derrière */
+  /* photo à cheval orange / blanc : la marge négative la fait descendre dans le panneau blanc */
   .hero-photo {
     height: auto;
-    width: min(92vw, 420px);
+    width: var(--pw);
+    margin-bottom: calc(-1 * var(--pover));
+    z-index: 4;
   }
   .hero-halo {
     right: -20%;
@@ -2567,7 +2679,7 @@ a.fc:hover {
   }
   /* panneau blanc : lignes de cahier + tout centré */
   .hero-right {
-    padding: 36px var(--pad) 44px;
+    padding: calc(var(--pover) + 28px) var(--pad) 44px;
     gap: 14px;
     text-align: center;
     align-items: center;
@@ -2725,6 +2837,9 @@ a.fc:hover {
   .nav-cta {
     display: inline-flex;
   }
+  .theme-toggle {
+    margin: 0;
+  }
   .burger,
   .mobile-menu {
     display: none;
@@ -2865,6 +2980,12 @@ a.fc:hover {
     left: 50%;
     width: 96px;
     transform: translateX(-50%);
+    pointer-events: none;
+  }
+  /* anneaux dans un enfant positionné : peints au-dessus des ombres ::before/::after (z-index -1) */
+  .hero-spiral > i {
+    position: absolute;
+    inset: 0;
     background: url("data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20width%3D%2796%27%20height%3D%2744%27%20viewBox%3D%270%200%2096%2044%27%3E%3Cdefs%3E%3ClinearGradient%20id%3D%27w%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%270%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%23e9e9ec%27%2F%3E%3Cstop%20offset%3D%270.4%27%20stop-color%3D%27%238d9096%27%2F%3E%3Cstop%20offset%3D%270.75%27%20stop-color%3D%27%233a3c41%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%23141517%27%2F%3E%3C%2FlinearGradient%3E%3ClinearGradient%20id%3D%27hole%27%20x1%3D%270%27%20y1%3D%270%27%20x2%3D%270%27%20y2%3D%271%27%3E%3Cstop%20offset%3D%270%27%20stop-color%3D%27%230b0908%27%2F%3E%3Cstop%20offset%3D%270.6%27%20stop-color%3D%27%232a221d%27%2F%3E%3Cstop%20offset%3D%271%27%20stop-color%3D%27%233d332c%27%2F%3E%3C%2FlinearGradient%3E%3Cfilter%20id%3D%27b%27%20x%3D%27-20%25%27%20y%3D%27-60%25%27%20width%3D%27140%25%27%20height%3D%27260%25%27%3E%3CfeGaussianBlur%20stdDeviation%3D%271.4%27%2F%3E%3C%2Ffilter%3E%3C%2Fdefs%3E%3Crect%20x%3D%278%27%20y%3D%2713%27%20width%3D%2714%27%20height%3D%2718%27%20rx%3D%273%27%20fill%3D%27url%28%23hole%29%27%2F%3E%3Crect%20x%3D%2774%27%20y%3D%2713%27%20width%3D%2714%27%20height%3D%2718%27%20rx%3D%273%27%20fill%3D%27url%28%23hole%29%27%2F%3E%3Crect%20x%3D%278.5%27%20y%3D%2713.5%27%20width%3D%2713%27%20height%3D%2717%27%20rx%3D%272.5%27%20fill%3D%27none%27%20stroke%3D%27rgba%28255%2C255%2C255%2C0.28%29%27%20stroke-width%3D%271%27%20stroke-dasharray%3D%2713%2040%27%20stroke-dashoffset%3D%27-16%27%2F%3E%3Crect%20x%3D%2774.5%27%20y%3D%2713.5%27%20width%3D%2713%27%20height%3D%2717%27%20rx%3D%272.5%27%20fill%3D%27none%27%20stroke%3D%27rgba%28255%2C255%2C255%2C0.5%29%27%20stroke-width%3D%271%27%20stroke-dasharray%3D%2713%2040%27%20stroke-dashoffset%3D%27-16%27%2F%3E%3Cpath%20d%3D%27M15%2027%20C%2015%2012%2C%2081%2012%2C%2081%2027%27%20fill%3D%27none%27%20stroke%3D%27rgba%280%2C0%2C0%2C0.42%29%27%20stroke-width%3D%273.2%27%20stroke-linecap%3D%27round%27%20filter%3D%27url%28%23b%29%27%20transform%3D%27translate%281%204%29%27%2F%3E%3Cpath%20d%3D%27M15%2027%20C%2015%2012%2C%2081%2012%2C%2081%2027%27%20fill%3D%27none%27%20stroke%3D%27url%28%23w%29%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M15%2027%20C%2015%2012%2C%2081%2012%2C%2081%2027%27%20fill%3D%27none%27%20stroke%3D%27rgba%28255%2C255%2C255%2C0.75%29%27%20stroke-width%3D%270.9%27%20stroke-linecap%3D%27round%27%20stroke-dasharray%3D%2726%20200%27%20stroke-dashoffset%3D%27-8%27%2F%3E%3Cpath%20d%3D%27M15%2027%20L15%2031%27%20stroke%3D%27%231a1b1e%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%2F%3E%3Cpath%20d%3D%27M81%2027%20L81%2031%27%20stroke%3D%27%231a1b1e%27%20stroke-width%3D%273%27%20stroke-linecap%3D%27round%27%2F%3E%3C%2Fsvg%3E") center top / 96px 44px repeat-y;
     pointer-events: none;
   }
@@ -3748,7 +3869,7 @@ a.fc:hover {
 }
 .step {
   position: relative;
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 22px;
   padding: 24px 22px 22px;
@@ -3808,7 +3929,7 @@ a.fc:hover {
 }
 /* ---------- « Mon parcours » : section sombre + timeline ---------- */
 .dark-sec {
-  background: var(--ink);
+  background: var(--night);
   color: rgba(255, 255, 255, 0.72);
   position: relative;
   isolation: isolate;
@@ -3938,7 +4059,7 @@ a.fc:hover {
 
 .channel {
   margin-top: 22px;
-  background: var(--ink);
+  background: var(--night);
   color: rgba(255, 255, 255, 0.75);
   border-radius: var(--r);
   padding: 34px 26px;
@@ -3987,7 +4108,7 @@ a.fc:hover {
 .ch-copy .btn {
   margin-top: 24px;
   background: #fff;
-  color: var(--ink);
+  color: var(--black);
 }
 .ch-copy .btn:hover {
   background: #fff;
