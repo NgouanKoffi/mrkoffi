@@ -10,7 +10,9 @@ const SNIPPETS = [
   "print()", "map()", "useState", "SELECT", "return", "import", "class", "null", "true", "@", "%", "*", "/", "+",
 ];
 
-const COLORS = ["#f0663f", "#131316", "#131316", "#25d366", "#7c7c85"];
+// rouge + noir (le noir passe en blanc cassé en thème nuit, sinon invisible)
+const RED = "#e11d2e";
+const inkColor = () => (document.documentElement.dataset.theme === "dark" ? "#f2f2f2" : "#0a0a0a");
 
 type P = { x: number; y: number; vx: number; vy: number; life: number; max: number; text: string; color: string; size: number; rot: number };
 
@@ -61,13 +63,13 @@ export default function CodeTrail() {
         vx: nx * off * 0.01,
         vy: -0.15 - Math.random() * 0.2,
         life: 0,
-        max: 70 + Math.random() * 50,
+        max: 28 + Math.random() * 16,
         text,
-        color: COLORS[(Math.random() * COLORS.length) | 0],
+        color: Math.random() < 0.5 ? RED : inkColor(),
         size: 10 + Math.random() * 4,
         rot: 0,
       });
-      if (parts.length > 120) parts.splice(0, parts.length - 120);
+      if (parts.length > 40) parts.splice(0, parts.length - 40);
     };
 
     const onMove = (e: PointerEvent) => {
@@ -82,9 +84,9 @@ export default function CodeTrail() {
       const dx = x - lastX,
         dy = y - lastY;
       acc += Math.hypot(dx, dy);
-      // un fragment tous les ~22 px parcourus
-      while (acc > 16) {
-        acc -= 16;
+      // un fragment tous les ~28 px parcourus
+      while (acc > 28) {
+        acc -= 28;
         spawn(x, y, dx, dy);
       }
       lastX = x;
@@ -126,7 +128,7 @@ export default function CodeTrail() {
           continue;
         }
         const a = t < 0.1 ? t / 0.1 : 1 - (t - 0.1) / 0.9;
-        ctx.globalAlpha = Math.max(0, Math.min(1, a)) * 0.85;
+        ctx.globalAlpha = Math.max(0, Math.min(1, a)) * 0.5;
         ctx.font = `600 ${p.size}px ${font}`;
         ctx.fillStyle = p.color;
         ctx.textAlign = "center";
