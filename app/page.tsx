@@ -664,9 +664,6 @@ export default function Home() {
 
           <div className="foot-bottom">
             <span>© 2026 Koffi N&apos;gouan Emmanuel. Tous droits réservés.</span>
-            <span className="foot-made">
-              <i /> Disponible pour de nouveaux projets
-            </span>
           </div>
         </div>
       </footer>
