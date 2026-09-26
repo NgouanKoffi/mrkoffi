@@ -2578,6 +2578,16 @@ html.menu-lock body {
 .foot-nav a:hover {
   color: var(--cor);
 }
+/* mobile : liens du pied de page centrés */
+@media (max-width: 719px) {
+  .foot-nav {
+    align-self: stretch;
+    justify-content: center;
+  }
+  .foot-row > .btn {
+    align-self: center;
+  }
+}
 .foot-contacts {
   margin-top: 28px;
   display: grid;

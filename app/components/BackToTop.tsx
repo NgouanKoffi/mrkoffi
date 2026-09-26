@@ -18,7 +18,10 @@ export default function BackToTop() {
       raf = 0;
       const y = window.scrollY;
       const max = document.documentElement.scrollHeight - window.innerHeight;
-      setShow(y > 500);
+      // masqué quand la ligne copyright du footer entre à l'écran, pour ne pas la recouvrir
+      const foot = document.querySelector(".foot-bottom");
+      const atBottom = foot ? foot.getBoundingClientRect().top < window.innerHeight - 20 : y >= max - 80;
+      setShow(y > 500 && !atBottom);
       if (ring.current) ring.current.style.strokeDashoffset = String(C * (1 - (max > 0 ? Math.min(1, y / max) : 0)));
     };
     const onScroll = () => {
