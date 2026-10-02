@@ -62,9 +62,9 @@ export default function Projects() {
         <div className="prj-grid" key={filter}>
           {list.map((p, i) => (
             <article className={`prj-card k-${p.kind}`} style={{ animationDelay: `${(i % 6) * 60}ms` }} key={p.title}>
-              <div className="prj-cover">
-                {p.img ? (
-                  <img src={p.img} alt={p.title} loading="lazy" />
+              <div className={`prj-cover${p.cover ? " full" : ""}`}>
+                {p.cover || p.img ? (
+                  <img src={p.cover ?? p.img} alt={p.title} loading="lazy" width={1600} height={1000} />
                 ) : (
                   <div className="prj-abstract">
                     <span>

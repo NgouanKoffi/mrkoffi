@@ -16,3 +16,4 @@ app/*.original.*
 
 # sources brutes des visuels projets (captures/logos téléchargés), pas servies
 public/projects/*/
+!public/projects/covers/

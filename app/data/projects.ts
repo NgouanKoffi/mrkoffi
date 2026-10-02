@@ -8,6 +8,8 @@ export type Project = {
   year: string;
   desc: string;
   img?: string;
+  /** Couverture « branding » 16:10 (logo, accroche, mockups) — prioritaire sur img dans la grille. */
+  cover?: string;
   url?: string;
   status: Status;
   location?: string;
@@ -36,6 +38,7 @@ export const PHONE_DISPLAY = "+225 05 56 59 81 99";
 const raw: Project[] = [
   {
     title: "Laboratoire Afri' Cosmetic",
+    cover: "/projects/covers/laboratoireafricosmetic.webp",
     cat: "E-commerce · Cosmétique",
     kind: "dynamic",
     year: "2026",
@@ -46,6 +49,7 @@ const raw: Project[] = [
   },
   {
     title: "Radio Gbêkê FM",
+    cover: "/projects/covers/radiogbekefm.webp",
     cat: "Site radio · Streaming",
     kind: "dynamic",
     year: "2026",
@@ -55,17 +59,17 @@ const raw: Project[] = [
     status: "live",
   },
   {
-    title: "CalmPay",
-    cat: "App mobile · Paiement séquestre",
+    title: "Mise en production imminente",
+    cover: "/projects/covers/imminent.webp",
+    cat: "App mobile · Confidentielle",
     kind: "mobile",
     year: "2026",
-    desc: "Paiement Mobile Money sécurisé par séquestre : l'argent est bloqué jusqu'à livraison validée par les deux parties. Orange, MTN, Moov, Wave. Factures lien/QR, suivi livraison, biométrie.",
-    img: "/projects/calmpay.png",
-    url: "https://calmpay-psi.vercel.app/",
-    status: "live",
+    desc: "Application mobile en phase finale. Nom et détails dévoilés au lancement.",
+    status: "wip",
   },
   {
     title: "Radio Gbêkê FM — App",
+    cover: "/projects/covers/radiogbekeapp.webp",
     cat: "App mobile · Android",
     kind: "mobile",
     year: "2026",
@@ -76,6 +80,7 @@ const raw: Project[] = [
   },
   {
     title: "FullMargin — App",
+    cover: "/projects/covers/fullmarginapp.webp",
     cat: "App mobile · Trading",
     kind: "mobile",
     year: "2026",
@@ -86,6 +91,7 @@ const raw: Project[] = [
   },
   {
     title: "FullMargin",
+    cover: "/projects/covers/fullmargin.webp",
     cat: "Écosystème SaaS · Trading",
     kind: "dynamic",
     year: "2025",
@@ -96,6 +102,7 @@ const raw: Project[] = [
   },
   {
     title: "Model Agenci",
+    cover: "/projects/covers/modelagenci.webp",
     cat: "Agence mode · Site + Admin",
     kind: "dynamic",
     year: "2025",
@@ -106,6 +113,7 @@ const raw: Project[] = [
   },
   {
     title: "MK Confection",
+    cover: "/projects/covers/mkconfection.webp",
     cat: "Maison de couture · Boutique + Admin",
     kind: "dynamic",
     year: "2025",
@@ -116,6 +124,7 @@ const raw: Project[] = [
   },
   {
     title: "FullMargin Lab",
+    cover: "/projects/covers/fullmarginlab.webp",
     cat: "Studio dev · Sous-marque SaaS",
     kind: "dynamic",
     year: "2025",
@@ -126,6 +135,7 @@ const raw: Project[] = [
   },
   {
     title: "EffetsPerdus",
+    cover: "/projects/covers/effetsperdus.webp",
     cat: "Plateforme communautaire",
     kind: "dynamic",
     year: "2025",
@@ -136,6 +146,7 @@ const raw: Project[] = [
   },
   {
     title: "Portfolio Armel N'guessan",
+    cover: "/projects/covers/armel.webp",
     cat: "Portfolio · Social Media Manager",
     kind: "dynamic",
     year: "2025",
@@ -146,6 +157,7 @@ const raw: Project[] = [
   },
   {
     title: "English On My Way",
+    cover: "/projects/covers/english.webp",
     cat: "Landing page · Cabinet d'anglais",
     kind: "vitrine",
     year: "2025",
@@ -156,6 +168,7 @@ const raw: Project[] = [
   },
   {
     title: "OISVA",
+    cover: "/projects/covers/oisva.webp",
     cat: "Site ONG · Santé",
     kind: "vitrine",
     year: "2024",
@@ -166,6 +179,7 @@ const raw: Project[] = [
   },
   {
     title: "Akwaba Gbêkê",
+    cover: "/projects/covers/akwaba.webp",
     cat: "Blog · Radio Gbêkê FM",
     kind: "dynamic",
     year: "2024",
@@ -176,6 +190,7 @@ const raw: Project[] = [
   },
   {
     title: "T6 Trucking Inc",
+    cover: "/projects/covers/t6trucking.webp",
     cat: "Site logistique · Canada",
     kind: "vitrine",
     year: "2023",
@@ -187,6 +202,7 @@ const raw: Project[] = [
   },
   {
     title: "Ombea Cleaning",
+    cover: "/projects/covers/ombea.webp",
     cat: "Site entreprise · Canada",
     kind: "vitrine",
     year: "2023",
@@ -198,6 +214,7 @@ const raw: Project[] = [
   },
   {
     title: "CVB — Blog UVCI Bouaké",
+    cover: "/projects/covers/cvb.webp",
     cat: "Blog universitaire",
     kind: "dynamic",
     year: "2023",
@@ -208,6 +225,7 @@ const raw: Project[] = [
   },
   {
     title: "Viateur Hôtel",
+    cover: "/projects/covers/viateur.webp",
     cat: "Plateforme immobilière + Admin",
     kind: "dynamic",
     year: "2023",
@@ -218,6 +236,7 @@ const raw: Project[] = [
   },
   {
     title: "CCJAB — Cartes d'accès",
+    cover: "/projects/covers/ccjab.webp",
     cat: "Système bibliothèque · Centre Culturel",
     kind: "system",
     year: "2023",
@@ -228,6 +247,7 @@ const raw: Project[] = [
   },
   {
     title: "UAO — Cartes d'accès biblio",
+    cover: "/projects/covers/uao.webp",
     cat: "Système bibliothèque · Université",
     kind: "system",
     year: "2023",
@@ -238,6 +258,7 @@ const raw: Project[] = [
   },
   {
     title: "TekCom.ci",
+    cover: "/projects/covers/tekcom.webp",
     cat: "E-commerce · WordPress",
     kind: "dynamic",
     year: "2022",
@@ -248,6 +269,7 @@ const raw: Project[] = [
   },
   {
     title: "Capital Construction",
+    cover: "/projects/covers/capital.webp",
     cat: "Site entreprise · BTP",
     kind: "vitrine",
     year: "2022",
@@ -258,6 +280,7 @@ const raw: Project[] = [
   },
   {
     title: "Kumtel-Luxell",
+    cover: "/projects/covers/kumtel.webp",
     cat: "E-commerce · WordPress",
     kind: "dynamic",
     year: "2021",
@@ -266,6 +289,7 @@ const raw: Project[] = [
   },
   {
     title: "SOLTP",
+    cover: "/projects/covers/soltp.webp",
     cat: "Site vitrine · Construction",
     kind: "vitrine",
     year: "2021",
@@ -274,6 +298,7 @@ const raw: Project[] = [
   },
   {
     title: "Système événementiel CCJAB",
+    cover: "/projects/covers/ccjab-events.webp",
     cat: "Gestion d'événements · Centre Culturel",
     kind: "system",
     year: "2024",
@@ -282,6 +307,7 @@ const raw: Project[] = [
   },
   {
     title: "Agriculture × Élevage",
+    cover: "/projects/covers/agriculture.webp",
     cat: "App mobile · Big Data",
     kind: "mobile",
     year: "2025",
@@ -290,6 +316,7 @@ const raw: Project[] = [
   },
   {
     title: "Transfert d'argent",
+    cover: "/projects/covers/transfert.webp",
     cat: "App mobile · Fintech",
     kind: "mobile",
     year: "2025",
@@ -298,6 +325,7 @@ const raw: Project[] = [
   },
   {
     title: "Transport à la demande",
+    cover: "/projects/covers/transport.webp",
     cat: "App mobile · Mobilité",
     kind: "mobile",
     year: "2025",
@@ -306,6 +334,7 @@ const raw: Project[] = [
   },
   {
     title: "Gestion d'entreprise",
+    cover: "/projects/covers/gestion.webp",
     cat: "App mobile · Gestion",
     kind: "mobile",
     year: "2024",
@@ -314,6 +343,7 @@ const raw: Project[] = [
   },
   {
     title: "Application sous NDA",
+    cover: "/projects/covers/nda.webp",
     cat: "App mobile · Confidentielle",
     kind: "mobile",
     year: "2024",
@@ -322,6 +352,7 @@ const raw: Project[] = [
   },
   {
     title: "5 Projets en cours",
+    cover: "/projects/covers/wip.webp",
     cat: "Roadmap · En développement",
     kind: "dynamic",
     year: "2026",

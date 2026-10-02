@@ -1985,6 +1985,19 @@ html.menu-lock body {
 .prj-card:hover .prj-cover img {
   transform: translateY(-8px);
 }
+/* couverture « branding » : visuel complet, bord à bord */
+.prj-cover.full {
+  padding: 0;
+  background: var(--ink);
+}
+.prj-cover.full img {
+  border-radius: 0;
+  box-shadow: none;
+  object-position: center;
+}
+.prj-card:hover .prj-cover.full img {
+  transform: scale(1.04);
+}
 .k-vitrine .prj-cover {
   background: linear-gradient(135deg, #fff1ea, #ffe3d6);
 }
