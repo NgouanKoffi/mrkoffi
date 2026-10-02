@@ -251,3 +251,53 @@ vérifiées à chaque fois sur :3000 via Chrome. **Toujours rien commité.**
   working tree.
 - Vérifier le hero sur mobile réel (la traînée y est désactivée ; spirale masquée).
 - Le user trouvait le scroll lent avant le retrait des `drop-shadow` : à reconfirmer chez lui.
+
+---
+
+## Session du 2026-10-02 — Grille Portfolio : couvertures « branding »
+
+Demande : chaque projet de la grille doit avoir une vraie illustration de présentation, sur le modèle des
+couvertures déjà faites pour Radio Gbêkê App et FullMargin App. Commit `d214e00`, poussé sur `main`.
+
+### Couvertures (`public/projects/covers/*.webp`)
+- 1600×1000 (16:10), WebP q84, ~2,5 Mo pour 31 fichiers. Composition commune : fond aux couleurs de la marque
+  (halo + trame de points), logo (vrai logo du site ou monogramme), nom + sous-titre, accroche 3 lignes en
+  majuscules (dernier mot en couleur, serif italique pour MK Confection / Model Agenci), phrase courte, bouton
+  (domaine ou libellé), mockups, petite carte flottante.
+- **Sites en ligne** (Afri' Cosmetic, Gbêkê FM, FullMargin, Model Agenci, MK Confection, FullMargin Lab,
+  English On My Way, Akwaba) : captures refaites en direct, desktop 1440×900 + mobile 390×844 →
+  navigateur + téléphone.
+- **Anciens projets** (T6, Ombea, TekCom, Capital, OISVA, CVB, CCJAB, UAO, Viateur, EffetsPerdus, Armel) :
+  captures existantes recadrées (barre navigateur, barre des tâches Windows, scrollbars retirées) → navigateur
+  seul incliné.
+- **Projets sans capture** (Transfert d'argent, Transport, Agriculture, Gestion, Kumtel, SOLTP, CCJAB Events,
+  5 projets en cours) : écrans **dessinés en HTML** (illustrations, pas les vraies interfaces — à remplacer si
+  les vraies captures arrivent). NDA : écrans floutés + tampon « CONFIDENTIEL ».
+- Radio Gbêkê App et FullMargin App : couvertures existantes converties en WebP.
+- Pas de faux domaines : pour les projets connus seulement par un post Facebook, la barre d'adresse affiche un
+  libellé neutre (« OISVA · ONG », « CVB · Blog UVCI »…). Les chiffres des cartes flottantes viennent des sites.
+
+### Code
+- `app/data/projects.ts` : nouveau champ `cover` (prioritaire sur `img`, qui reste en place).
+- `app/components/Projects.tsx` : `p.cover ?? p.img`, classe `.prj-cover.full`.
+- `app/globals.css` : `.prj-cover.full` bord à bord (sans padding ni cadre pêche), zoom 1.04 au survol.
+- `.gitignore` : exception `!public/projects/covers/` (la règle `public/projects/*/` excluait le dossier → le
+  site en ligne n'aurait eu aucune couverture).
+
+### CalmPay → confidentiel
+- Demande du user : ne plus montrer le projet, même pas le nom. Carte remplacée par
+  **« Mise en production imminente »** : catégorie « App mobile · Confidentielle », texte « Application mobile en
+  phase finale. Nom et détails dévoilés au lancement. », statut `wip` (badge « En cours »), lien et captures
+  retirés, couverture neutre `imminent.webp` (téléphones floutés, fusée, vert, pastille « Lancement imminent »).
+- Effets : la carte descend dans la grille (plus de lien) ; le compteur « projets livrés » perd 1.
+- Les fichiers `public/projects/calmpay*` restent en local mais sont ignorés par Git → absents du site en ligne.
+
+### Générateur (hors dépôt)
+- Script Node (puppeteer-core + Chrome installé + sharp) dans le scratchpad de la session : captures des sites,
+  template HTML de couverture, rendu PNG → WebP. **Non versionné** : à copier dans `scripts/covers/` si on veut
+  générer d'autres couvertures plus tard.
+
+### Restes
+- Remplacer les écrans dessinés par de vraies captures dès qu'elles existent.
+- Vérifier le site en ligne après redéploiement.
+- Deux photos non suivies à la racine (`706527279_…png`, `Apply_frequency_…jpeg`) : non commitées.
