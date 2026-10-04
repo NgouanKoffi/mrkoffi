@@ -1,0 +1,9 @@
+node_modules
+.next
+tsconfig.tsbuildinfo
+next-env.d.ts
+.env*.local
+
+# photos brutes du client et références visuelles : gardées sur le disque, pas dans le dépôt
+_sources/
+designpinterest/

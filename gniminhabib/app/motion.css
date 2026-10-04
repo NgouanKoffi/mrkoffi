@@ -1,0 +1,215 @@
+/* Mouvement. Tout passe par `transform` / `clip-path` / `opacity` : les propriétés individuelles
+   (translate, rotate, scale) restent libres pour la mise en page et les survols. Sans JS ou avec
+   « réduire les animations », rien de tout ceci ne s'applique et la page reste entièrement visible. */
+
+/* ───────── Barre de progression de lecture ───────── */
+.progress {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 80;
+  height: 3px;
+  background: var(--yellow);
+  transform: scaleX(0);
+  transform-origin: left;
+  pointer-events: none;
+}
+
+/* ───────── Entrées ───────── */
+.fx-ready [data-reveal] {
+  opacity: 1;
+  translate: none;
+}
+
+.fx-ready [data-anim] {
+  opacity: 0;
+  transition:
+    opacity 0.7s ease,
+    transform 0.95s cubic-bezier(0.2, 0.8, 0.2, 1),
+    clip-path 1.05s cubic-bezier(0.2, 0.8, 0.2, 1),
+    rotate 0.35s,
+    translate 0.3s,
+    background-color 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+  transition-delay: calc(var(--i, 0) * 75ms);
+}
+
+.fx-ready [data-anim="up"] {
+  transform: translateY(70px);
+}
+
+.fx-ready [data-anim="left"] {
+  transform: translateX(-90px);
+}
+
+.fx-ready [data-anim="right"] {
+  transform: translateX(90px);
+}
+
+.fx-ready [data-anim="kick"] {
+  transform: translateX(-34px);
+}
+
+.fx-ready [data-anim="rise"] {
+  transform: translateY(64px) skewY(5deg);
+  transform-origin: 0 100%;
+}
+
+.fx-ready [data-anim="row"] {
+  transform: translateX(-60px);
+}
+
+.fx-ready [data-anim="row"][data-alt] {
+  transform: translateX(60px);
+}
+
+.fx-ready [data-anim="wipe"] {
+  opacity: 1;
+  transform: scale(1.12);
+  clip-path: inset(0 100% 0 0);
+}
+
+.fx-ready [data-anim="wipe"][data-alt] {
+  clip-path: inset(0 0 0 100%);
+}
+
+.fx-ready [data-anim="pop"] {
+  transform: scale(0.55);
+  transition-timing-function: ease, cubic-bezier(0.3, 1.5, 0.5, 1), ease, ease, ease, ease, ease, ease;
+}
+
+.fx-ready [data-anim="zoom"] {
+  transform: translateY(40px) scale(0.82);
+}
+
+.fx-ready [data-anim="zoom"][data-alt] {
+  transform: translateY(-30px) scale(0.82);
+}
+
+.fx-ready [data-anim="flip"] {
+  transform: perspective(1400px) rotateX(-32deg) translateY(80px);
+  transform-origin: 50% 0;
+}
+
+.fx-ready [data-anim="drop"] {
+  transform: translateY(-90px) rotate(-16deg);
+  transition-delay: 0.35s;
+}
+
+.fx-ready [data-anim="tilt"] {
+  transform: translateX(-80px) rotate(-22deg);
+  transition-delay: 0.3s;
+}
+
+.fx-ready [data-anim="fan"] {
+  transform: translateY(110px) scale(0.8);
+}
+
+.fx-ready [data-anim].in {
+  opacity: 1;
+  transform: none;
+}
+
+.fx-ready [data-anim="wipe"].in {
+  clip-path: inset(0 0 0 0);
+}
+
+/* ───────── Grands mots de fond : parallaxe ───────── */
+.h5-word,
+.zct-word,
+.zaw-year,
+.zcf-fig p,
+.ztk-two {
+  transform: translate3d(0, var(--py, 0), 0);
+  will-change: transform;
+}
+
+/* ───────── Vagues entre sections : elles coulent ───────── */
+main > section.sheet::before,
+main > section.sheet::after,
+.foot.sheet::before,
+.foot.sheet::after {
+  right: auto;
+  width: 200%;
+  -webkit-mask-size: 50% 100%;
+  mask-size: 50% 100%;
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+  transform: none;
+  animation: wave 30s linear infinite;
+}
+
+main > section.sheet::after,
+.foot.sheet::after {
+  animation-duration: 19s;
+}
+
+main > section.sheet:nth-of-type(even)::before,
+main > section.sheet:nth-of-type(even)::after {
+  transform: none;
+  animation-direction: reverse;
+}
+
+@keyframes wave {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ───────── Petites vies permanentes ───────── */
+.zaw-badge {
+  animation: sway 4.5s ease-in-out infinite;
+}
+
+@keyframes sway {
+  50% {
+    rotate: -3deg;
+  }
+}
+
+.h5-cta a span,
+.zpb span {
+  animation: nudge 2.6s ease-in-out infinite;
+}
+
+@keyframes nudge {
+  50% {
+    translate: 3px -3px;
+  }
+}
+
+.zrb {
+  animation: breathe 3s ease-in-out infinite;
+}
+
+@keyframes breathe {
+  50% {
+    scale: 1.08;
+  }
+}
+
+.phone.p2 {
+  animation: bob 5s ease-in-out infinite;
+}
+
+@keyframes bob {
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .progress {
+    display: none;
+  }
+}
+
+/* chiffres qui défilent : largeur stable */
+.zdt-stats dt,
+.ztk-price b,
+.ztk-date b,
+.ztr-head > b,
+.zcn-count b,
+.zsv-n {
+  font-variant-numeric: tabular-nums;
+}

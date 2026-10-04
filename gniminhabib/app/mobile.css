@@ -1,0 +1,957 @@
+/* Téléphone et tablette. Chargé en dernier : corrige ce que les règles « bureau » écrasaient. */
+
+@media (max-width: 1080px) {
+  /* ───────── Header ───────── */
+  .nav3 {
+    gap: 12px;
+    padding-block: 12px;
+  }
+
+  .nav3-cta {
+    gap: 8px;
+    padding: 4px 4px 4px 14px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+
+  .nav3-cta span {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* ───────── Hero : portrait, titre, bouton, puis les deux colonnes en miroir ───────── */
+  .hero5 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 14px;
+    height: auto;
+    padding: 0 var(--pad) 36px;
+  }
+
+  .h5-fig {
+    top: 64px;
+    height: 540px;
+  }
+
+  .hero5::after {
+    inset: 300px 0 0 0;
+  }
+
+  .h5-center {
+    position: relative;
+    inset: auto;
+    grid-column: 1 / -1;
+    order: 1;
+    margin-top: 350px;
+    padding-inline: 0;
+  }
+
+  .h5-note,
+  .h5-note.h5-right {
+    position: relative;
+    inset: auto;
+    order: 2;
+    display: flex;
+    flex-direction: column;
+    max-width: none;
+    margin-top: 34px;
+  }
+
+  .h5-note > p,
+  .h5-note .h5-does {
+    display: none;
+  }
+
+  .h5-note b.serif {
+    margin: 4px 0 0;
+    font-size: 1.15rem;
+  }
+
+  .h5-note .h5-socials,
+  .h5-note .h5-awards {
+    margin-top: 14px;
+  }
+
+  .h5-socials a {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .h5-socials {
+    gap: 7px;
+  }
+
+  .h5-awards .trophy {
+    width: 34px;
+  }
+
+  /* ───────── Jonctions ───────── */
+  main > section.sheet:not(.refs):not(.zfq) {
+    padding-top: calc(clamp(54px, 6vw, 92px) + 58px);
+  }
+
+  /* ───────── À propos ───────── */
+  .ab3-stage {
+    margin-inline: auto;
+  }
+
+  .ab3-facts {
+    margin-top: 10px;
+  }
+
+  /* ───────── Billet ───────── */
+  .ztk-main {
+    padding-bottom: 64px;
+  }
+
+  .ztk-main > .ztk-bonus {
+    align-items: flex-start;
+  }
+
+  .ztk-bonus b {
+    flex: none;
+  }
+
+  .ztk-flyer {
+    margin: -40px 0 -30px;
+  }
+
+  /* ───────── Prix ───────── */
+  .zaw-top {
+    grid-template-columns: 1fr;
+  }
+
+  .zaw-col {
+    justify-self: center;
+    width: min(74%, 320px);
+    margin: 10px 0 0 50px;
+  }
+
+  .zaw-side {
+    left: -50px;
+  }
+
+  .zaw-year {
+    font-size: 46vw;
+  }
+
+  /* ───────── Conférences ───────── */
+  .zcf-fig {
+    width: min(78%, 320px);
+    margin-top: 10px;
+  }
+
+  .zcf-fig p {
+    display: none;
+  }
+
+  /* ───────── Contact ───────── */
+  .zct-word {
+    font-size: 30vw;
+    white-space: normal;
+    line-height: 0.86;
+  }
+}
+
+@media (max-width: 620px) {
+  h2 {
+    font-size: 1.75rem;
+  }
+
+  .nav3-mark {
+    height: 34px;
+  }
+
+  .nav3-brand b .serif {
+    font-size: 1.1rem;
+  }
+
+  .hero5 h1 {
+    font-size: 8.4vw;
+  }
+
+  .refs {
+    padding-block: 20px;
+  }
+
+  .refs-rail li {
+    font-size: 1.1rem;
+  }
+
+  .ab3-word {
+    font-size: 27vw;
+  }
+
+  .zdt-name {
+    font-size: 15vw;
+  }
+
+  .ztk h3 {
+    font-size: 16.5vw;
+  }
+
+  .ztk-two {
+    font-size: 15rem;
+  }
+
+  .ztk-stub .zpb {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .ztr-head > b {
+    font-size: 30vw;
+  }
+
+  .rail img {
+    height: 150px;
+    border-radius: 16px;
+  }
+
+  /* mur d'affiches : deux colonnes, sinon la page n'en finit pas */
+  .wall {
+    columns: 2;
+    column-gap: 10px;
+  }
+
+  .wall-item {
+    margin-bottom: 10px;
+    border-radius: 12px;
+  }
+
+  .zaw .zh h2 {
+    font-size: 2rem;
+  }
+
+  .zaw-prizes p {
+    font-size: 1.1rem;
+  }
+
+  .zaw-prizes .trophy {
+    width: 44px;
+  }
+
+  .zaw-strip {
+    gap: 8px;
+  }
+
+  .zcn-count b {
+    font-size: 2.6rem;
+  }
+
+  .phones {
+    margin-top: 10px;
+  }
+
+  .zpc-time li {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 20px 0;
+  }
+
+  .zfq-list summary {
+    padding: 16px 0;
+    font-size: 0.98rem;
+  }
+
+  .zct {
+    padding-block: 70px;
+  }
+
+  .zct h2 {
+    font-size: 1.8rem;
+  }
+
+  .zct-ways {
+    grid-template-columns: 1fr;
+    justify-content: stretch;
+    gap: 18px;
+    text-align: center;
+  }
+
+  .zct-ways span {
+    justify-content: center;
+  }
+
+  .zct-ways a {
+    font-size: 1rem;
+    word-break: break-word;
+  }
+
+  .zft-top {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 30px;
+  }
+
+  .zft-brand,
+  .zft-contact {
+    grid-column: 1 / -1;
+  }
+
+  .zft-bottom {
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* entrées latérales plus courtes : pas de débordement horizontal */
+  .fx-ready [data-anim="left"]:not(.in),
+  .fx-ready [data-anim="row"]:not(.in),
+  .fx-ready [data-anim="tilt"]:not(.in) {
+    transform: translateX(-28px);
+  }
+
+  .fx-ready [data-anim="right"]:not(.in),
+  .fx-ready [data-anim="row"][data-alt]:not(.in) {
+    transform: translateX(28px);
+  }
+}
+
+@media (max-width: 1080px) {
+  /* hero : deux colonnes strictement égales */
+  .hero5 {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .h5-note small {
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+  }
+
+  .h5-note,
+  .h5-note.h5-right {
+    padding-inline: 12px;
+  }
+
+  .h5-awards span {
+    white-space: normal;
+  }
+
+  .h5-socials {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .h5-socials span {
+    flex: none;
+  }
+
+  .h5-socials a {
+    display: inline-grid;
+  }
+
+  .zct-word {
+    font-size: 23vw;
+    white-space: nowrap;
+  }
+
+  .zft,
+  .zft * {
+    text-align: left;
+  }
+}
+
+@media (max-width: 620px) {
+  .h5-socials {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .h5-socials span {
+    flex: 0 0 100%;
+  }
+
+  .h5-socials a {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+/* Aucun débordement horizontal : sinon le téléphone dézoome et la page n'occupe plus tout l'écran. */
+html,
+body {
+  overflow-x: clip;
+  max-width: 100%;
+}
+
+.foot {
+  overflow: hidden;
+}
+
+/* ───────── Petits téléphones et fenêtres zoomées (≤ 400 px, jusqu'à 300 px) ───────── */
+@media (max-width: 400px) {
+  :root {
+    --pad: 16px;
+  }
+
+  .nav3 {
+    gap: 8px;
+  }
+
+  .nav3-brand {
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .nav3-mark {
+    height: 30px;
+  }
+
+  .nav3-brand b small {
+    font-size: 0.5rem;
+    letter-spacing: 0.18em;
+  }
+
+  .nav3-brand b .serif {
+    font-size: 1rem;
+  }
+
+  .nav3-cta {
+    padding: 3px 3px 3px 12px;
+    font-size: 0.74rem;
+  }
+
+  .nav3-cta span {
+    width: 28px;
+    height: 28px;
+    font-size: 0.85rem;
+  }
+
+  .h5-cta a {
+    gap: 10px;
+    padding: 6px 6px 6px 18px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .h5-cta span {
+    width: 38px;
+    height: 38px;
+  }
+
+  .zpb {
+    gap: 10px;
+    padding-left: 18px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 350px) {
+  /* header : le bouton devient un simple rond fléché */
+  .nav3-cta {
+    padding: 3px;
+    font-size: 0;
+    gap: 0;
+    border: 0;
+  }
+
+  .nav3-cta span {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  /* hero : les deux colonnes passent l'une sous l'autre */
+  .hero5 {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .h5-note,
+  .h5-note.h5-right {
+    margin-top: 24px;
+  }
+
+  .h5-center {
+    margin-top: 330px;
+  }
+
+  .hero5 h1 {
+    font-size: 9vw;
+  }
+
+  .ab3-facts p {
+    font-size: 1rem;
+    white-space: normal;
+  }
+
+  .zdt-stats {
+    gap: 16px;
+  }
+
+  .zdt-stats dt {
+    font-size: 2.1rem;
+  }
+
+  .ztk-main,
+  .ztk-stub {
+    padding-inline: 18px;
+  }
+
+  .ztk-date b,
+  .ztk-price b {
+    font-size: 2.8rem;
+  }
+
+  .zdt-progs article,
+  .zdt-progs article + article {
+    grid-template-columns: 40px 1fr;
+    column-gap: 12px;
+  }
+
+  .zdt-progs span {
+    font-size: 1.8rem;
+  }
+
+  .zcn-links a {
+    padding: 9px 14px;
+    font-size: 0.85rem;
+  }
+
+  .zft-top {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ───────── Menu mobile : bouton à barres + panneau plein écran ───────── */
+.burger,
+.mmenu {
+  display: none;
+}
+
+@media (max-width: 1080px) {
+  .nav3 {
+    grid-template-columns: 1fr auto auto;
+  }
+
+  .burger {
+    position: relative;
+    z-index: 3;
+    display: grid;
+    align-content: center;
+    gap: 5px;
+    width: 42px;
+    height: 42px;
+    padding: 0 10px;
+    border-radius: 50%;
+    background: var(--yellow);
+  }
+
+  .burger i {
+    display: block;
+    height: 2.5px;
+    border-radius: 2px;
+    background: var(--ink);
+    transition: transform 0.3s, opacity 0.2s, width 0.3s;
+  }
+
+  .burger i:nth-child(2) {
+    width: 70%;
+  }
+
+  .burger.open i:nth-child(1) {
+    transform: translateY(7.5px) rotate(45deg);
+  }
+
+  .burger.open i:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.open i:nth-child(3) {
+    transform: translateY(-7.5px) rotate(-45deg);
+  }
+
+  .mmenu {
+    position: fixed;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    height: 100dvh;
+    padding: 90px var(--pad) 34px;
+    overflow-y: auto;
+    background: radial-gradient(ellipse 90% 60% at 80% 10%, #a3111d 0%, #5c080f 45%, #0a0a0a 100%);
+    color: #fff;
+    clip-path: circle(0 at calc(100% - 37px) 34px);
+    visibility: hidden;
+    transition: clip-path 0.55s cubic-bezier(0.6, 0, 0.2, 1), visibility 0s 0.55s;
+  }
+
+  .mmenu.open {
+    clip-path: circle(150% at calc(100% - 37px) 34px);
+    visibility: visible;
+    transition: clip-path 0.55s cubic-bezier(0.6, 0, 0.2, 1);
+  }
+
+  .mmenu nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mmenu nav a {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: clamp(1.5rem, 7vw, 2.1rem);
+    font-weight: 600;
+    line-height: 1.15;
+    opacity: 0;
+    transform: translateX(26px);
+    transition: opacity 0.4s, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), color 0.2s;
+  }
+
+  .mmenu.open nav a {
+    opacity: 1;
+    transform: none;
+  }
+
+  .mmenu nav a:hover {
+    color: var(--yellow);
+  }
+
+  .mmenu nav span {
+    font-family: var(--font-tall), var(--body);
+    font-style: normal;
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--yellow);
+  }
+
+  /* une fois le menu ouvert, le logo reste blanc/jaune même au-dessus d'une section claire */
+  .nav3:has(.mmenu.open) {
+    background: none;
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
+
+  .nav3:has(.mmenu.open) .nav3-brand {
+    position: relative;
+    z-index: 3;
+  }
+
+  .nav3:has(.mmenu.open) .mk-c {
+    stroke: var(--yellow);
+  }
+
+  .nav3:has(.mmenu.open) .mk-gh {
+    stroke: #fff;
+  }
+
+  .nav3:has(.mmenu.open) .nav3-brand b small {
+    color: var(--yellow);
+  }
+
+  .nav3:has(.mmenu.open) .nav3-brand b .serif {
+    color: #fff;
+  }
+
+  .nav3:has(.mmenu.open) .nav3-cta {
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 400px) {
+  /* le bouton contact est dans le menu : on libère la place */
+  .nav3-cta {
+    display: none;
+  }
+
+  .nav3 {
+    grid-template-columns: 1fr auto;
+  }
+
+  .burger {
+    width: 40px;
+    height: 40px;
+  }
+
+  .mmenu {
+    clip-path: circle(0 at calc(100% - 36px) 32px);
+  }
+}
+
+@media (max-width: 1080px) {
+  /* le panneau vit dans le header : on annule les styles des liens du menu bureau */
+  .mmenu {
+    justify-content: flex-start;
+    gap: 22px;
+    padding-top: 84px;
+  }
+
+  .nav3 .mmenu nav {
+    display: flex;
+    gap: 0;
+  }
+
+  .nav3 .mmenu nav a {
+    padding: 9px 0;
+    font-size: clamp(1.3rem, 6.2vw, 1.8rem);
+    font-weight: 600;
+    letter-spacing: 0;
+    text-transform: none;
+    color: #fff;
+  }
+
+  .nav3 .mmenu nav a::after {
+    content: none;
+  }
+
+  .nav3 .mmenu nav a:hover {
+    color: var(--yellow);
+  }
+
+  .mmenu .zpb {
+    flex: none;
+  }
+}
+
+@media (max-width: 1080px) {
+  .mmenu .zpb {
+    align-self: center;
+  }
+}
+
+/* Hero mobile : portrait recentré et plus petit, corps visible jusqu'à la taille, titre réduit */
+@media (max-width: 1080px) {
+  .h5-fig {
+    top: 74px;
+    left: 43%;
+    height: 440px;
+    -webkit-mask-image: linear-gradient(#000 0%, #000 60%, rgba(0, 0, 0, 0.35) 78%, transparent 96%);
+    mask-image: linear-gradient(#000 0%, #000 60%, rgba(0, 0, 0, 0.35) 78%, transparent 96%);
+  }
+
+  .hero5::after {
+    inset: 360px 0 0 0;
+    background: linear-gradient(transparent 0%, rgba(58, 5, 10, 0.82) 30%, #2b0306 100%);
+  }
+
+  .h5-center,
+  .hero5 .h5-center {
+    margin-top: 400px;
+  }
+}
+
+@media (max-width: 620px) {
+  .hero5 h1 {
+    font-size: 6.6vw;
+    line-height: 1.12;
+  }
+
+  .h5-cta {
+    margin-top: 18px;
+  }
+}
+
+@media (max-width: 350px) {
+  .hero5 h1 {
+    font-size: 7.2vw;
+  }
+
+  .hero5 .h5-center {
+    margin-top: 390px;
+  }
+}
+
+/* À propos sur mobile : sans portrait, les grandes lettres seules */
+@media (max-width: 620px) {
+  .ab3-stage img,
+  .ab3-outline {
+    display: none;
+  }
+
+  .ab3-stage {
+    aspect-ratio: auto;
+    max-width: none;
+    margin: 0;
+  }
+
+  .ab3-word {
+    position: static;
+    font-size: 30vw;
+  }
+}
+
+/* À propos sur mobile : fond noir uni, sans halo rouge */
+@media (max-width: 1080px) {
+  .about3 {
+    background-image: none;
+    background-color: #0a0a0a;
+  }
+}
+
+@media (max-width: 1080px) {
+  /* même couleur que la bande références : pas besoin d'un grand vide entre les deux */
+  main > section.about3 {
+    padding-top: 30px;
+  }
+
+  .refs {
+    padding-bottom: 14px;
+  }
+}
+
+@media (max-width: 1080px) {
+  main > section + section.about3:not(.refs):not(.zfq) {
+    padding-top: 26px;
+  }
+}
+
+@media (max-width: 620px) {
+  .ztk-kicker {
+    display: none;
+  }
+
+  .ztk h3 {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 620px) {
+  /* billet sans l'affiche : le talon vient directement sous le corps */
+  .ztk-flyer {
+    display: none;
+  }
+
+  .ztk-main {
+    padding-bottom: 30px;
+  }
+
+  .ztk-stub {
+    grid-row: 2;
+    padding-top: 34px;
+  }
+}
+
+@media (max-width: 620px) {
+  /* programmes : numéro + titre sur une ligne, puis tout le reste repart du bord gauche */
+  .zdt-progs article,
+  .zdt-progs article + article {
+    grid-template-columns: auto 1fr;
+    column-gap: 14px;
+    align-items: center;
+  }
+
+  .zdt-progs span {
+    grid-row: 1;
+    align-self: center;
+    font-size: 2.2rem;
+  }
+
+  .zdt-progs h3 {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    margin: 0;
+  }
+
+  .zdt-progs p,
+  .zdt-progs ul,
+  .zdt-progs small {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .zdt-progs p {
+    margin-top: 10px;
+  }
+}
+
+/* Vagues sur mobile : plus fines et plus étirées (une ondulation large au lieu de bosses serrées) */
+@media (max-width: 1080px) {
+  main > section.sheet::before,
+  main > section.sheet::after,
+  .foot.sheet::before,
+  .foot.sheet::after {
+    width: 400%;
+  }
+}
+
+@media (max-width: 620px) {
+  main > section.sheet::before,
+  main > section.sheet::after,
+  .foot.sheet::before,
+  .foot.sheet::after {
+    width: 560%;
+  }
+
+  main > section.sheet::before,
+  .foot.sheet::before {
+    height: 30px;
+  }
+
+  main > section.sheet::after,
+  .foot.sheet::after {
+    height: 42px;
+  }
+
+  main > section.sheet:not(.refs):not(.zfq) {
+    padding-top: calc(clamp(54px, 6vw, 92px) + 34px);
+  }
+}
+
+@media (max-width: 620px) {
+  .zaw-badge {
+    display: none;
+  }
+}
+
+/* Boutons centrés sur mobile */
+@media (max-width: 620px) {
+  .zpb {
+    display: flex;
+    margin-inline: auto;
+  }
+
+  .zcn-links {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1080px) {
+  /* talon du billet : mêmes marges à gauche et à droite (la perforation est en haut sur mobile) */
+  .ztk-stub {
+    padding-left: clamp(24px, 3vw, 38px);
+  }
+}
+
+/* ───────── Tablette (621 – 1080 px) ───────── */
+@media (min-width: 621px) and (max-width: 1080px) {
+  .h5-socials {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .h5-socials span {
+    flex: 0 0 100%;
+  }
+
+  /* trois repères : le texte peut passer à la ligne au lieu de sortir de l'écran */
+  .ab3-facts li {
+    gap: 12px;
+    padding-left: 16px;
+  }
+
+  .ab3-facts span {
+    width: 44px;
+    height: 44px;
+    font-size: 1.2rem;
+  }
+
+  .ab3-facts p {
+    font-size: 0.95rem;
+    white-space: normal;
+  }
+
+  .zdt-photo img {
+    aspect-ratio: 16 / 9;
+  }
+}
