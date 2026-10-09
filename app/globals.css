@@ -911,7 +911,7 @@ html.menu-lock body {
 .d4 {
   left: 2.5%;
   top: 19%;
-  font-size: clamp(20px, 1.75vw, 27px);
+  font-size: clamp(18px, 1.45vw, 26px);
   transform: rotate(-4deg);
   color: #1d1410;
   text-shadow: 0.3px 0.3px 0 rgba(29, 20, 16, 0.4);
@@ -3051,7 +3051,11 @@ a.fc:hover {
     grid-row: 1;
     justify-self: center;
     margin-left: 0;
-    height: min(52svh, 500px);
+    /* même portrait que sur mobile : son bas se fond en transparence, on le fait donc
+       dépasser sous le hero (22 % de la hauteur) pour que la coupe reste nette */
+    --ph: min(66svh, 640px);
+    height: var(--ph);
+    margin-bottom: calc(var(--ph) * -0.22);
     transform: translateY(0);
   }
   .hero-right {

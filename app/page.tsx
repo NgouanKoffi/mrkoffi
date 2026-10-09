@@ -153,11 +153,11 @@ export default function Home() {
             </p>
             {/* miroir de d3 : coin haut gauche, à gauche de CRÉER */}
             <p className="doodle d4 up" data-delay="0.95">
-              Même si tu habites
+              Tu me vois en avant
               <br />
-              sur la planète Mars,
+              c'est qu'il y a aussi mes gars,
               <br />
-              je peux faire ton travail
+              c'est qu'il y a aussi mes gens
             </p>
             <p className="doodle d3 up" data-delay="0.8">
               Si y a pas place pour
@@ -169,13 +169,12 @@ export default function Home() {
           </div>
 
           <picture className="hero-photo-wrap">
-            <source media="(max-width: 999px)" srcSet="/koffi-mobile.webp" width={806} height={1100} />
             <img
-              src="/koffi-portrait.webp"
+              src="/koffi-mobile.webp"
               alt="Koffi N'gouan Emmanuel, développeur web et mobile"
               className="hero-photo"
-              width={1000}
-              height={750}
+              width={806}
+              height={1100}
               fetchPriority="high"
             />
           </picture>
