@@ -37,6 +37,16 @@ export const PHONE_DISPLAY = "+225 05 56 59 81 99";
 
 const raw: Project[] = [
   {
+    title: "Gnimin Habib Coulibaly",
+    cover: "/projects/covers/gniminhabib.webp",
+    cat: "Portfolio · Personal branding",
+    kind: "vitrine",
+    year: "2026",
+    desc: "Portfolio d'un consultant et formateur en IA de Bouaké : services, Digital-Tech Academy, conférences, distinctions, mur d'affiches cliquables et animations au défilement.",
+    url: "https://coulibaly-gnimin-habib.vercel.app/",
+    status: "live",
+  },
+  {
     title: "Laboratoire Afri' Cosmetic",
     cover: "/projects/covers/laboratoireafricosmetic.webp",
     cat: "E-commerce · Cosmétique",
