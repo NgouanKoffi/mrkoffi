@@ -207,23 +207,19 @@ h3 > i {
   align-items: center;
 }
 
+/* logo officiel de Digital-Tech, posé tel quel sur une plaque blanche */
 .zdt-name {
-  display: flex;
-  align-items: center;
-  gap: 0.14em;
-  margin: 14px 0 22px;
-  font-size: clamp(3rem, 7vw, 6rem);
-  font-weight: 500;
-  line-height: 1;
-  letter-spacing: -0.04em;
+  width: clamp(170px, 14vw, 220px);
+  margin: 16px 0 24px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: #fff;
+  line-height: 0;
 }
 
-.zdt-name b {
-  padding: 0.02em 0.16em 0.06em;
-  border-radius: 0.14em;
-  background: #fff;
-  color: var(--violet);
-  font-weight: 800;
+.zdt-name img {
+  width: 100%;
+  height: auto;
 }
 
 .zdt-lead {

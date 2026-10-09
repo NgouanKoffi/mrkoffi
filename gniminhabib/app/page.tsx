@@ -1,4 +1,5 @@
 import Fx from "./components/Fx";
+import IconTrail from "./components/IconTrail";
 import Menu from "./components/Menu";
 import Wall from "./components/Wall";
 
@@ -258,6 +259,7 @@ export default function Page() {
   return (
     <>
       <Fx />
+      <IconTrail />
 
       <header className="nav3">
         <a className="nav3-brand" href="#top" aria-label="Gnimin Habib Coulibaly — accueil">
@@ -294,7 +296,7 @@ export default function Page() {
             <br />
             Gnimin Habib
           </span>
-          <img className="h5-fig" src="/cut/pockets.webp" alt="Gnimin Habib Coulibaly, souriant" width={810} height={1280} />
+          <img className="h5-fig" src="/cut/bras.webp" alt="Gnimin Habib Coulibaly, bras croisés, lunettes à la main" width={810} height={1280} />
 
           <div className="h5-note">
             <small>Consultant &amp; formateur</small>
@@ -398,7 +400,7 @@ export default function Page() {
               <br />
               jargon.
             </p>
-            <img src="/cut/glasses.webp" alt="Gnimin Habib Coulibaly, lunettes à la main" loading="lazy" width={864} height={1080} />
+            <img src="/cut/poches.webp" alt="Gnimin Habib Coulibaly, souriant, mains dans les poches" loading="lazy" width={864} height={1080} />
             <p className="ab3-word ab3-outline" aria-hidden="true">
               L'IA
               <br />
@@ -497,7 +499,7 @@ export default function Page() {
             <div data-reveal>
               <small className="kicker">Mon entreprise · fondée en octobre 2024</small>
               <h2 className="zdt-name">
-                Digital<b>Tech</b>
+                <img src="/brand/digital-tech.webp" alt="Digital-Tech" width={726} height={536} />
               </h2>
               <p className="zdt-lead">
                 Structure de formation et de services digitaux, à Bouaké. J'y conçois et j'anime les programmes de{" "}

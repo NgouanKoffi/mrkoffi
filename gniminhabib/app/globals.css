@@ -1339,14 +1339,10 @@ h2 {
   }
 }
 
-/* « Digital-Tech » : violet de la marque, contour blanc */
+/* « Digital-Tech » : nom en gras, sans imiter le logo */
 .h5-note p strong {
   font-weight: 800;
-  font-size: 1.08em;
-  color: #6a2be0;
-  -webkit-text-stroke: 3px #fff;
-  paint-order: stroke fill;
-  letter-spacing: 0.01em;
+  color: #fff;
 }
 
 /* header : plus de trait dessous */

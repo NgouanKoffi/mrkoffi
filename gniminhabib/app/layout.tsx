@@ -27,8 +27,13 @@ const tall = Anton({
 });
 
 export const metadata: Metadata = {
-  // Adresse publique du site (aperçus de partage). À définir au déploiement : NEXT_PUBLIC_SITE_URL=https://…
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3001"),
+  // Adresse publique du site (aperçus de partage). NEXT_PUBLIC_SITE_URL si définie, sinon le domaine de production fourni par Vercel.
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ??
+      (process.env.VERCEL_PROJECT_PRODUCTION_URL
+        ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+        : "http://localhost:3001"),
+  ),
   title: "Gnimin Habib Coulibaly — Formateur IA, marketing digital & WordPress",
   description:
     "Consultant et formateur en intelligence artificielle appliquée, marketing digital et WordPress. Fondateur de Digital-Tech, Bouaké. Plus de 800 personnes formées.",
